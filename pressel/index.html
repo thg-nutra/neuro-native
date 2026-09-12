@@ -1,272 +1,1019 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Report - 60 Minutes</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;700&family=Source+Serif+4:wght@800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #ffffff;
-            color: #111827;
-        }
-        .font-inter { font-family: 'Inter', sans-serif; }
-        .font-serif { font-family: 'Source Serif 4', Georgia, serif; }
-        
-        /* Cores da barra superior */
-        .bg-cbs-dark { background-color: #b30000; }
-        .bg-cbs-mid { background-color: #a30000; }
-        .bg-cbs-light { background-color: #960000; }
-        
-        /* Detalhe da borda vermelha no título */
-        .headline-border {
-            border-left: 4px solid #b30000;
-            padding-left: 1rem;
-        }
-        
-        /* Botão de CTA */
-        .btn-cta {
-            background-color: #ff0200;
-            box-shadow: 0 7px 15px rgba(0,0,0,0.3);
-            transition: transform 0.2s ease-in-out;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-cta:hover {
-            transform: scale(1.05);
-            background-color: #e60000;
-            color: white;
-        }
-        
-        /* Scroll horizontal para abas no mobile */
-        .tabs-scroll::-webkit-scrollbar { display: none; }
-        .tabs-scroll { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>🚨 (1) Unread Message - CBS News Health</title>
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@600;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       RESET & BASE STYLES
+       ========================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #111111;
+      background-color: #ffffff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ==========================================================
+       TOP BAR 1 - CATEGORIES & LOGO
+       ========================================================== */
+    .top-nav-bar {
+      border-bottom: 1px solid #E8E8E8;
+      padding: 10px 16px;
+      background: #ffffff;
+    }
+
+    .top-nav-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      color: #000000;
+      flex: 1;
+    }
+
+    .nav-links-left li {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-links-left svg {
+      width: 10px;
+      height: 10px;
+      fill: #000;
+    }
+
+    .nav-logo-center {
+      text-align: center;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-logo-center img {
+      height: 38px;
+      width: auto;
+    }
+
+    .nav-search-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav-search-right svg {
+      width: 20px;
+      height: 20px;
+      fill: #000000;
+      cursor: pointer;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      cursor: pointer;
+    }
+
+    /* ==========================================================
+       TOP BAR 2 - CBS MORNINGS SUBHEADER
+       ========================================================== */
+    .sub-nav-bar {
+      border-bottom: 1px solid #E8E8E8;
+      padding: 10px 16px;
+      background: #ffffff;
+    }
+
+    .sub-nav-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand-heading {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .sub-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      list-style: none;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      color: #000000;
+    }
+
+    /* ==========================================================
+       ARTICLE HEADER
+       ========================================================== */
+    .article-header {
+      max-width: 800px;
+      margin: 24px auto 16px auto;
+      padding: 0 16px;
+    }
+
+    .article-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #000000;
+      margin-bottom: 12px;
+    }
+
+    .article-byline {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      color: #666666;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: capitalize;
+    }
+
+    /* ==========================================================
+       MAIN CONTENT CONTAINER
+       ========================================================== */
+    .article-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 16px 40px 16px;
+    }
+
+    .article-content p {
+      font-size: 18px;
+      font-weight: 400;
+      color: #000000;
+      margin-bottom: 22px;
+      line-height: 1.65;
+    }
+
+    .article-content h1, 
+    .article-content h2, 
+    .article-content h3, 
+    .article-content h4 {
+      margin: 26px 0 16px 0;
+      line-height: 1.3;
+    }
+
+    .article-content h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .article-content h2 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .article-content h3 {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .article-content h4 {
+      font-size: 20px;
+    }
+
+    .media-card {
+      margin: 24px 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .media-card img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .quote-box {
+      font-style: italic;
+      text-align: center;
+      margin: 20px 0;
+      padding: 0 10px;
+    }
+
+    /* ==========================================================
+       ANIMATED CALL TO ACTION BUTTON (PULSING)
+       ========================================================== */
+    .cta-btn-wrapper {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .cta-button {
+      display: inline-block;
+      width: 100%;
+      max-width: 680px;
+      background-color: #C10000;
+      color: #ffffff !important;
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 18px 24px;
+      border: 2px solid #C10000;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      animation: pulsar 1.6s infinite ease-in-out;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 6px 20px rgba(193, 0, 0, 0.35);
+    }
+
+    .cta-button:hover, .cta-button:focus {
+      background-color: #a00000;
+      border-color: #a00000;
+      color: #ffffff;
+    }
+
+    @keyframes pulsar {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    /* ==========================================================
+       FACEBOOK COMMENTS SECTION (HIGH CONVERTING)
+       ========================================================== */
+    .fb-comments-wrapper {
+      width: 100%;
+      max-width: 800px;
+      margin: 40px auto 30px auto;
+      box-sizing: border-box;
+    }
+
+    .fb-comments-box {
+      background: #ffffff;
+      border: 1px solid #dddfe2;
+      border-radius: 10px;
+      padding: 20px 22px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .fb-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e4e6eb;
+      margin-bottom: 18px;
+    }
+
+    .fb-header-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #050505;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fb-header-filter {
+      font-size: 13px;
+      color: #65676b;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .fb-comment-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+
+    .fb-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .fb-avatar-sm {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .fb-bubble {
+      background: #f0f2f5;
+      border-radius: 18px;
+      padding: 9px 15px 10px 15px;
+      display: inline-block;
+      max-width: 100%;
+      position: relative;
+    }
+
+    .fb-user-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #050505;
+      display: block;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+
+    .fb-comment-text {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #050505;
+      margin: 0;
+    }
+
+    .fb-reaction-badge {
+      position: absolute;
+      right: -10px;
+      bottom: -9px;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 2px 7px 2px 5px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+      font-size: 11px;
+      font-weight: 600;
+      color: #65676b;
+      border: 1px solid #e4e6eb;
+    }
+
+    .fb-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+      padding-left: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #65676b;
+    }
+
+    .fb-actions span {
+      cursor: pointer;
+      color: #050505;
+    }
+
+    .fb-actions .fb-time {
+      font-weight: 400;
+      color: #8a8d91;
+      cursor: default;
+    }
+
+    .fb-reply-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+      align-items: flex-start;
+    }
+
+    .fb-closed-notice {
+      text-align: center;
+      padding: 10px 14px;
+      margin-top: 15px;
+      background: #f7f8fa;
+      border-radius: 8px;
+      font-size: 12.5px;
+      color: #65676b;
+      font-weight: 500;
+      border: 1px dashed #d0d4dc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* ==========================================================
+       CLEAN FULL-WIDTH COMPLIANCE FOOTER
+       ========================================================== */
+    .page-footer {
+      background: #11151c;
+      width: 100%;
+      margin-top: 50px;
+      border-top: 1px solid #232936;
+      color: #8a93a6;
+      font-family: 'Roboto', sans-serif;
+      padding: 36px 20px 30px 20px;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .footer-container {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-bottom: 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    .footer-links a {
+      color: #c5cddb;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-separator {
+      color: #4a5568;
+    }
+
+    .footer-copyright {
+      font-size: 11px;
+      color: #6b7280;
+      border-top: 1px solid #1e2430;
+      padding-top: 16px;
+    }
+
+    /* ==========================================================
+       RESPONSIVE DESIGN (MOBILE)
+       ========================================================== */
+    @media (max-width: 768px) {
+      body {
+        font-size: 17px;
+      }
+
+      .nav-links-left, .sub-nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        flex: 1;
+      }
+
+      .nav-logo-center {
+        flex: 2;
+      }
+
+      .nav-logo-center img {
+        height: 32px;
+      }
+
+      .article-title {
+        font-size: 25px;
+        line-height: 1.3;
+      }
+
+      .cta-button {
+        font-size: 16px;
+        padding: 16px 14px;
+        width: 100%;
+      }
+
+      .fb-comments-box {
+        padding: 16px 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- ================= HEADER (60 Minutes Clean & Compact) ================= -->
-    <header class="font-inter w-100 bg-cbs-dark border-bottom border-danger shadow-sm sticky-top" style="background-color: #b30000;">
-        <div class="container-md d-flex justify-content-between align-items-center py-2 px-3" style="max-width: 900px; height: 50px;">
-            <!-- Esquerda: Menu + CBS Logo -->
-            <div class="d-flex align-items-center gap-3">
-                <div class="d-flex flex-wrap" style="width: 16px; gap: 2.5px; cursor: pointer;" title="Menu">
-                    <div class="bg-white rounded-1" style="width: 3.5px; height: 3.5px;"></div>
-                    <div class="bg-white rounded-1" style="width: 3.5px; height: 3.5px;"></div>
-                    <div class="bg-white rounded-1" style="width: 3.5px; height: 3.5px;"></div>
-                    <div class="bg-white rounded-1" style="width: 3.5px; height: 3.5px;"></div>
-                    <div class="bg-white rounded-1" style="width: 3.5px; height: 3.5px;"></div>
-                    <div class="bg-white rounded-1" style="width: 3.5px; height: 3.5px;"></div>
-                </div>
-                <div class="d-flex align-items-center">
-                    <svg viewBox="-202.36 354.278 1000 133.335" xmlns="http://www.w3.org/2000/svg" style="height: 20px; width:auto;">
-                        <g fill="#ffffff">
-                            <path d="M-68.719,420.945c0.288,17.824-6.809,34.972-19.606,47.381c-12.393,12.646-29.455,19.621-47.159,19.274c-17.777,0.265-34.875-6.809-47.272-19.553c-26.074-25.985-26.149-68.189-0.162-94.265c0.055-0.055,0.107-0.109,0.162-0.164c12.433-12.662,29.528-19.653,47.272-19.33c17.744-0.273,34.813,6.803,47.159,19.552C-75.575,386.168-68.482,403.212-68.719,420.945z M-72.772,420.945c-5.167-11.522-13.534-21.318-24.108-28.218c-11.447-7.813-25.025-11.906-38.883-11.72c-13.849-0.128-27.411,3.958-38.883,11.72c-10.409,6.997-18.644,16.772-23.773,28.218c11.21,24.478,35.732,40.109,62.656,39.938C-108.756,461.06-84.134,445.447-72.772,420.945z M-99.991,420.945c-0.031,19.59-15.903,35.464-35.493,35.493c-19.542-0.035-35.356-15.905-35.32-35.446c0.035-19.542,15.905-35.354,35.445-35.32c9.348,0.016,18.307,3.73,24.924,10.332C-103.625,402.496-99.84,411.539-99.991,420.945z"></path>
-                            <path d="M-56.831,420.945c0.541-35.336,29.628-63.543,64.964-63.001c0.175,0.003,0.35,0.006,0.525,0.011c19.776-0.127,38.538,8.743,50.991,24.107l-17.275,17.275c-8.035-10.576-20.439-16.931-33.716-17.275c-21.475,0-38.883,17.408-38.883,38.883s17.408,38.883,38.883,38.883c13.528-0.208,26.226-6.566,34.494-17.275l17.387,17.275c-12.716,15.522-31.817,24.399-51.881,24.105c-35.331,0.833-64.647-27.133-65.48-62.464C-56.825,421.295-56.829,421.12-56.831,420.945z"></path>
-                            <path d="M70.204,360.566h50.88c24.163,0,38.883,14.664,38.883,31.883c0.105,10.977-6.499,20.908-16.665,25.052c13.025,3.864,22.027,15.745,22.22,29.33c0,18.996-15.553,34.494-41.438,34.494h-53.88V360.566z M119.362,407.169c6.672,0.786,12.717-3.987,13.502-10.66c0.786-6.672-3.987-12.717-10.66-13.503c-0.944-0.111-1.899-0.111-2.843,0H96.089v24.163H119.362z M122.806,458.938c10.386,0,16.663-6.054,16.663-14.72c0-8.664-5.998-14.664-16.663-14.664H96.089v29.384H122.806z"></path>
-                            <path d="M169.076,464.938l17.275-17.221c7.224,8.141,17.556,12.843,28.44,12.943c13.831,0,19.831-6.055,19.831-13.831c0-20.72-60.379-11.11-60.379-53.492c0-18.997,16.663-35.383,43.993-35.383c15.247-0.34,29.945,5.7,40.549,16.664l-17.219,17.275c-5.706-6.313-13.718-10.058-22.22-10.388c-12.941,0-18.108,5.222-18.108,12.109c0,20.72,60.379,11.11,60.379,53.492c0,19.83-17.275,37.105-45.713,37.105C198.258,484.767,181.217,477.754,169.076,464.938z"></path>
-                            <path d="M304.554,360.566h23.273l58.546,75.043v-75.043h25.885v120.758h-23.33l-58.489-75.044v75.044h-25.885V360.566z"></path>
-                            <path d="M429.978,360.566h89.707v24.163h-63.878v23.273h49.992v23.275h-49.992v25.939h65.6v24.107h-91.429V360.566z"></path>
-                            <path d="M527.518,360.566h26.718l25.052,81.097h0.833l25.052-81.097h24.163l24.995,81.097h0.89l24.995-81.097h26.772l-39.716,120.758h-24.995l-24.496-78.487h-1.056l-24.496,78.487h-25.052L527.518,360.566z"></path>
-                            <path d="M705.1,464.938l17.275-17.221c7.224,8.141,17.556,12.843,28.439,12.943c13.831,0,19.831-6.055,19.831-13.831c0-20.72-60.38-11.11-60.38-53.492c0-18.997,16.387-35.383,43.991-35.383c15.249-0.34,29.947,5.7,40.551,16.664l-17.221,17.275c-5.706-6.313-13.716-10.058-22.218-10.388c-12.941,0-18.108,5.222-18.108,12.109c0,20.72,60.379,11.11,60.379,53.492c0,19.83-17.275,37.105-45.715,37.105C734.281,484.767,717.24,477.754,705.1,464.938z"></path>
-                        </g>
-                    </svg>
-                </div>
-            </div>
 
-            <!-- Centro: Badge 60 MINUTES -->
-            <div class="d-flex align-items-center">
-                <span class="badge bg-white text-danger fw-bolder px-2.5 py-1 text-uppercase tracking-wider shadow-sm" style="font-size: 11px; letter-spacing: 0.8px; border: 1px solid rgba(255,255,255,0.3);">
-                    60 MINUTES
-                </span>
-            </div>
+  <!-- TOP NAVIGATION -->
+  <header class="top-nav-bar">
+    <div class="top-nav-container">
+      
+      <!-- Left (Desktop Categories) -->
+      <ul class="nav-links-left">
+        <li>
+          <span>Latest</span>
+          <svg viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+        </li>
+        <li>
+          <span>Local News</span>
+          <svg viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+        </li>
+        <li>
+          <span>Live</span>
+          <svg viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+        </li>
+        <li>
+          <span>Shows</span>
+          <svg viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+        </li>
+      </ul>
 
-            <!-- Direita: Ícone de Busca -->
-            <div class="d-flex align-items-center" style="cursor: pointer;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" width="18" height="18">
-                    <circle cx="10.5" cy="10.5" r="7"></circle>
-                    <path d="M21 21l-5-5"></path>
-                </svg>
+      <!-- Mobile Hamburger Icon -->
+      <div class="mobile-menu-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </div>
+
+      <!-- Center Logo -->
+      <div class="nav-logo-center">
+        <img src="data:image/webp;base64,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" alt="CBS News">
+      </div>
+
+      <!-- Right Search Icon -->
+      <div class="nav-search-right">
+        <svg viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- SUBHEADER -->
+  <section class="sub-nav-bar">
+    <div class="sub-nav-container">
+      <div class="brand-heading">CBS Mornings</div>
+      <ul class="sub-nav-links">
+        <li>|</li>
+        <li>Eye Opener</li>
+        <li>Politics</li>
+        <li>Health</li>
+        <li>Note to Self</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ARTICLE HEADER -->
+  <header class="article-header">
+    <h1 class="article-title">Tom Hanks Breaks Down in New Interview After Learning His Neuropathy Could Have Been Prevented</h1>
+    <div class="article-byline">
+      <span>by Anderson Cooper</span>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE BODY -->
+  <main class="article-content">
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/01.png" alt="Tom Hanks Interview">
+      </a>
+    </div>
+
+    <p>The world watched in tears as <strong>Tom Hanks</strong> — America's most beloved actor — broke down crying in a recent interview about his battle with <strong>diabetic neuropathy.</strong></p>
+
+    <p>"I was so angry," Tom revealed. "I spent years feeling my feet go numb, the burning, the tingling keeping me up at night."</p>
+
+    <p>"Doctors told me I might lose my foot to <strong>amputation.</strong> And the answer was sitting in my kitchen cabinet the whole time."</p>
+
+    <p>So, if you're suffering from <strong>neuropathy</strong> — the nerve pain, the numbness, that horrible 'pins and needles' feeling in your hands and feet...</p>
+
+    <h4 style="color: #ff0000; font-weight: 700;">You're NOT alone.</h4>
+
+    <p>After his diagnosis, Tom reached out to <strong>Dr. Oz</strong> — the Harvard-trained physician who became America's most trusted doctor and has been called "the most influential voice in medicine" by TIME Magazine.</p>
+
+    <p>What Dr. Oz discovered about the REAL cause of Tom's neuropathy <strong>changed everything</strong> — and it's now helping thousands of Americans save their feet from amputation.</p>
+
+    <p>The impact was so great that Dr. Oz was invited for an exclusive interview on <strong>60 Minutes</strong> with Sharyn Alfonsi, where he shared the step-by-step protocol Tom's family is now using.</p>
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/02.png" alt="Dr Oz and Sharyn">
+      </a>
+    </div>
+
+    <h2 style="text-align: center; font-weight: 700; margin-top: 30px; margin-bottom: 20px;">During the interview, Dr. Oz <strong style="color: #ff0000;">shocked</strong> the audience by stating:</h2>
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/03.png" alt="Shocked Audience">
+      </a>
+    </div>
+
+    <p><strong>Sharyn:</strong> Dr. Oz, millions watched Tom Hanks interview in tears. What did you tell him that changed everything?</p>
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/04.png" alt="Dr Oz Explaining">
+      </a>
+    </div>
+
+    <p><strong>Dr. Oz:</strong> The truth that <strong>only 0.3%</strong> of doctors know: neuropathy isn't just diabetes or age — it's <strong>microplastics</strong> poisoning your nerves.</p>
+
+    <p>Tiny plastic particles hidden in <strong>your food, water, and even the air you breathe.</strong> They've been building up in your body for 40, 50 years.</p>
+
+    <p>And they settle in your hands and feet — <strong>exactly where neuropathy strikes.</strong></p>
+
+    <p>They block the electrical signals between your nerves, like static on a phone line. That's what causes the burning, the tingling, the numbness.</p>
+
+    <p>Tom had been exposed to them his whole life without knowing. When I explained this, he broke down crying.</p>
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/05.png" alt="Microplastics effect">
+      </a>
+    </div>
+
+    <p><strong>Sharyn:</strong> Your 'Pink Salt Trick' segment got over <strong>4.5 million views</strong>. Is that what you gave Tom?</p>
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/06.png" alt="Pink Salt Trick">
+      </a>
+    </div>
+
+    <p><strong>Dr. Oz:</strong> Exactly. One teaspoon of pink Himalayan salt combined with a common yellow spice — it binds to those microplastics, flushes them right out through your urine, and lets your nerves finally heal.</p>
+
+    <p>Tom told me the burning in his feet stopped after just 10 days. First time in years he slept through the night. His doctors couldn't believe it — they had already scheduled him for amputation.</p>
+
+    <p>He canceled it. The family was in tears — happy tears this time.</p>
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/07.png" alt="Tom Hanks Smiling">
+      </a>
+    </div>
+
+    <p><strong>Sharyn:</strong> Can anyone try this at home?</p>
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/09.png" alt="Ingredients">
+      </a>
+    </div>
+
+    <p><strong>Dr. Oz:</strong> You probably have this ingredient in your kitchen right now.</p>
+
+    <p>Most people feel the difference <strong>in just 3-5 days</strong> — the tingling fades, the burning stops, that feeling in your feet you thought was gone forever starts coming back.</p>
+
+    <p>I'm 64 and I use this every morning. It's my secret weapon for keeping my nerves healthy.</p>
+
+    <p>I made a short video explaining exactly how to do this at home — the exact type of pink salt, what the yellow spice is, the precise amount, and when to take it.</p>
+
+    <h2 style="text-align: center; font-weight: 700; margin-top: 40px; margin-bottom: 20px;">WATCH THE 5-MINUTE VIDEO TO REVERSE NEUROPATHY FOR GOOD</h2>
+
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/09.png" alt="Play Video">
+      </a>
+    </div>
+
+    <div class="cta-btn-wrapper">
+      <a class="cta-button" href="/neuro-vid" target="_blank">CLICK TO WATCH</a>
+    </div>
+
+    <h1 style="color: #ff0000; text-align: center; margin: 40px 0;">See Other Celebrities Who Also Canceled Their Amputation</h1>
+
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+            <img src="/images/01.jpg" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" alt="Patti LaBelle">
+            <div>
+                <div style="color: #ffc107; font-size: 14px; margin-bottom: 5px;">★★★★★</div>
+                <h3 style="margin: 0; font-size: 18px; font-weight: 700;">Patti LaBelle</h3>
             </div>
         </div>
-    </header>
+        <p style="margin: 0; font-size: 16px; color: #555;">For years, my feet were numb and constantly tingling. Doctors kept giving me pills, but nothing fixed the problem. Then I discovered Dr. Oz’s Pink Salt Ritual. After a few weeks, the burning started to calm down and I could finally walk without that constant discomfort.</p>
+    </div>
 
-    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
-    <main class="container-md mt-4 mb-5" style="max-width: 900px;">
-        <!-- Meta Info & Título -->
-        <div class="mb-4">
-            <p class="text-danger fw-bold text-uppercase font-inter mb-3" style="font-size: 11px; letter-spacing: 1px;">
-                Health <span class="text-secondary fw-normal">• 4 Min Read</span>
-            </p>
-            <div class="headline-border mb-3">
-                <h1 class="font-serif fw-bolder text-dark" style="font-size: 2rem; line-height: 1.2;">
-                    Tom Hanks Breaks Down in New Interview After Learning His Neuropathy Could Have Been Prevented
-                </h1>
-            </div>
-            <p class="text-muted fw-bold text-uppercase font-inter mb-2" style="font-size: 11px; letter-spacing: 0.5px;">
-                APR 12, 2026 <span class="ms-1">⌄</span>
-            </p>
-            <!-- Autor -->
-            <div class="d-flex align-items-center gap-2 pt-3 border-top">
-                <div class="text-muted text-uppercase fw-bold font-inter" style="font-size: 10px;">Correspondent</div>
-                <div class="rounded-circle bg-danger text-white d-flex justify-content-center align-items-center fw-bold" style="width: 32px; height: 32px; font-size: 12px;">SA</div>
-                <span class="fw-bold text-dark text-decoration-underline font-inter" style="font-size: 13px;">Sharyn Alfonsi</span>
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+            <img src="/images/02.jpg" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" alt="Halle Berry">
+            <div>
+                <div style="color: #ffc107; font-size: 14px; margin-bottom: 5px;">★★★★★</div>
+                <h3 style="margin: 0; font-size: 18px; font-weight: 700;">Halle Berry</h3>
             </div>
         </div>
+        <p style="margin: 0; font-size: 16px; color: #555;">This simple nerve ritual is incredible. In just a few weeks, the burning and tingling in my feet started to fade. And within a couple of months, the numbness was almost completely gone. And no, it wasn’t medication or injections like most people assume. It was all thanks to this simple daily routine I started every morning. The test results you see here are the real results of this natural method, just like Dr. Oz explained to me. I truly believe anyone struggling with neuropathy should try this. Because it really works — and you can feel the difference in just days.</p>
+    </div>
 
-        <!-- Corpo do Artigo -->
-        <article class="fs-5 lh-lg text-dark">
-            <img src="/images/01.png" class="img-fluid w-100 my-4 rounded shadow-sm" alt="Tom Hanks Interview">
-            
-            <p>The world watched in tears as <strong>Tom Hanks</strong> — America's most beloved actor — broke down crying in a recent interview about his battle with <strong>diabetic neuropathy.</strong></p>
-            
-            <p>"I was so angry," Tom revealed. "I spent years feeling my feet go numb, the burning, the tingling keeping me up at night."</p>
-            
-            <p>"Doctors told me I might lose my foot to <strong>amputation.</strong> And the answer was sitting in my kitchen cabinet the whole time."</p>
-            
-            <p>So, if you're suffering from <strong>neuropathy</strong> — the nerve pain, the numbness, that horrible 'pins and needles' feeling in your hands and feet...</p>
-            
-            <p><strong>You're NOT alone.</strong></p>
-            
-            <p>After his diagnosis, Tom reached out to <strong>Dr. Oz</strong> — the Harvard-trained physician who became America's most trusted doctor and has been called "the most influential voice in medicine" by TIME Magazine.</p>
-            
-            <p>What Dr. Oz discovered about the REAL cause of Tom's neuropathy <strong>changed everything</strong> — and it's now helping thousands of Americans save their feet from amputation.</p>
-            
-            <p>The impact was so great that Dr. Oz was invited for an exclusive interview on <strong>60 Minutes</strong> with Sharyn Alfonsi, where he shared the step-by-step protocol Tom's family is now using.</p>
-            
-            <img src="/images/02.png" class="img-fluid w-100 my-4 rounded shadow-sm" alt="Dr Oz and Sharyn">
-            
-            <h2 class="text-center fw-bold mt-5 mb-4">During the interview, Dr. Oz <strong class="text-danger">shocked</strong> the audience by stating:</h2>
-            
-            <img src="/images/03.png" class="img-fluid w-100 my-4 rounded shadow-sm" alt="Shocked Audience">
-            
-            <p><strong>Sharyn:</strong> Dr. Oz, millions watched Tom Hanks interview in tears. What did you tell him that changed everything?</p>
-            
-            <img src="/images/04.png" class="img-fluid w-100 my-4 rounded shadow-sm" alt="Dr Oz Explaining">
-            
-            <p><strong>Dr. Oz:</strong> The truth that <strong>only 0.3%</strong> of doctors know: neuropathy isn't just diabetes or age — it's <strong>microplastics</strong> poisoning your nerves.</p>
-            
-            <p>Tiny plastic particles hidden in <strong>your food, water, and even the air you breathe.</strong> They've been building up in your body for 40, 50 years.</p>
-            
-            <p>And they settle in your hands and feet — <strong>exactly where neuropathy strikes.</strong></p>
-            
-            <p>They block the electrical signals between your nerves, like static on a phone line. That's what causes the burning, the tingling, the numbness.</p>
-            
-            <p>Tom had been exposed to them his whole life without knowing. When I explained this, he broke down crying.</p>
-            
-            <img src="/images/05.png" class="img-fluid w-100 my-4 rounded shadow-sm" alt="Microplastics effect">
-            
-            <p><strong>Sharyn:</strong> Your 'Pink Salt Trick' segment got over <strong>4.5 million views</strong>. Is that what you gave Tom?</p>
-            
-            <img src="/images/06.png" class="img-fluid w-100 my-4 rounded shadow-sm" alt="Pink Salt Trick">
-            
-            <p><strong>Dr. Oz:</strong> Exactly. One teaspoon of pink Himalayan salt combined with a common yellow spice — it binds to those microplastics, flushes them right out through your urine, and lets your nerves finally heal.</p>
-            
-            <p>Tom told me the burning in his feet stopped after just 10 days. First time in years he slept through the night. His doctors couldn't believe it — they had already scheduled him for amputation.</p>
-            
-            <p>He canceled it. The family was in tears — happy tears this time.</p>
-            
-            <a href="/neuro-vid" target="_blank">
-                <img src="/images/07.png" class="img-fluid w-100 my-4 rounded shadow-sm" alt="Tom Hanks Smiling">
-            </a>
-            
-            <p><strong>Sharyn:</strong> Can anyone try this at home?</p>
-            
-            <a href="/neuro-vid" target="_blank">
-                <img src="/images/09.png" class="img-fluid w-100 my-4 rounded shadow-sm" alt="Ingredients">
-            </a>
-            
-            <p><strong>Dr. Oz:</strong> You probably have this ingredient in your kitchen right now.</p>
-            
-            <p>Most people feel the difference <strong>in just 3-5 days</strong> — the tingling fades, the burning stops, that feeling in your feet you thought was gone forever starts coming back.</p>
-            
-            <p>I'm 64 and I use this every morning. It's my secret weapon for keeping my nerves healthy.</p>
-            
-            <p>I made a short video explaining exactly how to do this at home — the exact type of pink salt, what the yellow spice is, the precise amount, and when to take it.</p>
-
-            <!-- Chamada Principal de Vídeo 1 -->
-            <div class="text-center my-5">
-                <h2 class="fw-bold mb-4 fs-3">WATCH THE 5-MINUTE VIDEO TO REVERSE NEUROPATHY FOR GOOD</h2>
-                <a href="/neuro-vid" target="_blank">
-                    <img src="/images/09.png" class="img-fluid w-100 my-4 shadow rounded" alt="Play Video">
-                </a>
-                <a href="/neuro-vid" target="_blank" class="btn btn-cta text-white fw-bold fs-5 py-2 px-4 mx-auto d-inline-block shadow-sm" style="min-width: 240px; border-radius: 8px;">
-                    CLICK TO WATCH
-                </a>
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+            <img src="/images/03.webp" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" alt="Randy Jackson">
+            <div>
+                <div style="color: #ffc107; font-size: 14px; margin-bottom: 5px;">★★★★★</div>
+                <h3 style="margin: 0; font-size: 18px; font-weight: 700;">Randy Jackson</h3>
             </div>
+        </div>
+        <p style="margin: 0; font-size: 16px; color: #555;">I struggled with neuropathy for years — burning feet, numb toes, constant tingling. But the Pink Salt Trick I heard about from Dr. Oz changed everything. In just days, the burning started to fade and the tingling calmed down in a way nothing else ever did.</p>
+    </div>
 
-            <h2 class="text-center fw-bold text-danger my-5">See Other Celebrities Who Also Canceled Their Amputation</h2>
+    <h2 style="text-align: center; font-weight: 700; margin-top: 40px; margin-bottom: 20px;">WATCH THE 5-MINUTE VIDEO TO REVERSE NEUROPATHY FOR GOOD</h2>
 
-            <!-- Seção de Depoimentos -->
-            <div class="row g-4 mb-5">
-                <!-- Depoimento 1 -->
-                <div class="col-12">
-                    <div class="card shadow-sm border-0 bg-light">
-                        <div class="card-body p-4">
-                            <div class="d-flex gap-3 mb-3 align-items-center">
-                                <img src="/images/01.jpg" class="rounded-circle border border-2 border-white shadow-sm" style="width: 50px; height: 50px; object-fit: cover;" alt="Patti LaBelle">
-                                <div>
-                                    <div class="text-warning small mb-1">★★★★★</div>
-                                    <h5 class="card-title fw-bold m-0 font-inter">Patti LaBelle</h5>
-                                </div>
-                            </div>
-                            <p class="card-text text-secondary fs-6 lh-base">For years, my feet were numb and constantly tingling. Doctors kept giving me pills, but nothing fixed the problem. Then I discovered Dr. Oz’s Pink Salt Ritual. After a few weeks, the burning started to calm down and I could finally walk without that constant discomfort.</p>
-                        </div>
-                    </div>
-                </div>
+    <div class="media-card">
+      <a href="/neuro-vid" target="_blank">
+        <img src="/images/09.png" alt="Play Final Video">
+      </a>
+    </div>
 
-                <!-- Depoimento 2 -->
-                <div class="col-12">
-                    <div class="card shadow-sm border-0 bg-light">
-                        <div class="card-body p-4">
-                            <div class="d-flex gap-3 mb-3 align-items-center">
-                                <img src="/images/02.jpg" class="rounded-circle border border-2 border-white shadow-sm" style="width: 50px; height: 50px; object-fit: cover;" alt="Halle Berry">
-                                <div>
-                                    <div class="text-warning small mb-1">★★★★★</div>
-                                    <h5 class="card-title fw-bold m-0 font-inter">Halle Berry</h5>
-                                </div>
-                            </div>
-                            <p class="card-text text-secondary fs-6 lh-base">This simple nerve ritual is incredible. In just a few weeks, the burning and tingling in my feet started to fade. And within a couple of months, the numbness was almost completely gone. And no, it wasn’t medication or injections like most people assume. It was all thanks to this simple daily routine I started every morning. The test results you see here are the real results of this natural method, just like Dr. Oz explained to me. I truly believe anyone struggling with neuropathy should try this. Because it really works — and you can feel the difference in just days.</p>
-                        </div>
-                    </div>
-                </div>
+    <div class="cta-btn-wrapper">
+      <a class="cta-button" href="/neuro-vid" target="_blank">CLICK TO WATCH</a>
+    </div>
 
-                <!-- Depoimento 3 -->
-                <div class="col-12">
-                    <div class="card shadow-sm border-0 bg-light">
-                        <div class="card-body p-4">
-                            <div class="d-flex gap-3 mb-3 align-items-center">
-                                <img src="/images/03.webp" class="rounded-circle border border-2 border-white shadow-sm" style="width: 50px; height: 50px; object-fit: cover;" alt="Randy Jackson">
-                                <div>
-                                    <div class="text-warning small mb-1">★★★★★</div>
-                                    <h5 class="card-title fw-bold m-0 font-inter">Randy Jackson</h5>
-                                </div>
-                            </div>
-                            <p class="card-text text-secondary fs-6 lh-base">I struggled with neuropathy for years — burning feet, numb toes, constant tingling. But the Pink Salt Trick I heard about from Dr. Oz changed everything. In just days, the burning started to fade and the tingling calmed down in a way nothing else ever did.</p>
-                        </div>
-                    </div>
-                </div>
+</main>
+
+  <!-- FACEBOOK COMMENTS SECTION -->
+  <section class="fb-comments-wrapper">
+    <div class="fb-comments-box">
+      
+      <!-- Header -->
+      <div class="fb-header">
+        <span class="fb-header-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          3,765 Comments on this Broadcast
+        </span>
+        <span class="fb-header-filter">Top comments ▾</span>
+      </div>
+
+      <!-- Comment 1: Margaret Wilson -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,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" alt="Margaret Wilson">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Margaret Wilson</span>
+            <p class="fb-comment-text">Day 19 doing this morning trick and I finally slept through the night without burning feet. Please don’t skip this video.</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>418</span>
             </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">2m</span>
+          </div>
+        </div>
+      </div>
 
-            <!-- Chamada Final de Vídeo 2 -->
-            <div class="text-center my-5">
-                <h2 class="fw-bold mb-4 fs-3">WATCH THE 5-MINUTE VIDEO TO REVERSE NEUROPATHY FOR GOOD</h2>
-                <a href="/neuro-vid" target="_blank">
-                    <img src="/images/09.png" class="img-fluid w-100 my-4 shadow rounded" alt="Play Final Video">
-                </a>
-                <a href="/neuro-vid" target="_blank" class="btn btn-cta text-white fw-bold fs-5 py-2 px-4 mx-auto d-inline-block shadow-sm" style="min-width: 240px; border-radius: 8px;">
-                    CLICK TO WATCH
-                </a>
+      <!-- Comment 2: Robert Mitchell -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,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" alt="Robert Mitchell">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Robert Mitchell</span>
+            <p class="fb-comment-text">71yo retired Navy here. Both feet were numb as wood. 4 weeks in and I can feel the floor again. My podiatrist was speechless.</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>382</span>
             </div>
-        </article>
-    </main>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">14m</span>
+          </div>
+        </div>
+      </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Comment 3: Nancy + Reply from Richard -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,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" alt="Nancy">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Nancy</span>
+            <p class="fb-comment-text">Does anyone do this before or after coffee? Starting tomorrow!</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>295</span>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">32m</span>
+          </div>
+
+          <!-- Nested Reply from Richard -->
+          <div class="fb-reply-box">
+            <img class="fb-avatar-sm" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAUKADAAQAAAABAAAAUAAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAUABQAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQABf/aAAwDAQACEQMRAD8A+OPht8O9B+KF3qFn4qtrlEi1RWESN5circIm8NlT2IPQcivP4/2aHm1G4jsLny3t75QglwQbVhKSGO0rvUwsOhDZGcdK+h/hd4t03wb8RPF93qfMck1uiDIGXlgUg/gFJrfTxTY6TZ6jr+oRO1pdal9kgaPBZmBnlLAEjJ/e7ce2e9fKUcRJL3Xoe/i6a5rdkeU+JfC/wbm15fD954HNtcOjE3NvKIoi6LvIJUqASBkDbj6V8h/E3RvCFhqFlceDIbqDT7hHyLpiW3o21toJyADx6elfZGr63o+t6rFrdu0qpAWlZZojHlDA6kZBZckkY59a+TvFGn3/AIxfSY/Dtt9oEaujyDgKxckBmPGAOa7sLJqV+Z2/DqcVVJrlS1/4Yt/DLwfaeLNR+yXt3cRRxwPMEjkIDbJEUKc5wMOckUzSdObTdYhjMnm+ZhwSOQGOMH1xivdvhx8EL+PUdP1C41uGza3YM8ce4luVYruJGQcc8V2N1+y18QQ0mu+H7228QwWuSIYDsuBGvICofvY9jmurG16bl7kun4hhcPWUW5xe5574KMi298U6tfT/ANK9LszIsMru5kG1uuOOPavOPCcMtomo211E0brfXG5GGCDxwQa9EtnVNPuZNm391IcfRT6V8/iPjZ6FHYofC0Y8C6a3d1dvzdq/bj9kK38vSLRiePstuv4nL1+JfwzTZ4D0n1aHP5kmv27/AGYbyKxsrOOXjKRKP+AQ12YN/wC0SbObGO1CB//Q+NNM+IN9oXjbX/EngG3ttZe6NjFGkqkxsGjZHPKsQQVAzjiq3iW6+I+t3MV7qvg/y4op3uFhs9TjWLzZEWNjsKHJKqP1Ncx8FYrZtfuorr5l8jevUYdThSMc5BNe5+L7/wD4R1Ne8RWt3OsumxxXAtfPkMTMzuMNljgHH8NfJ4SjzR5V5d/TufRZjiHCafl5f5Hldz/wkX9htpEPhhraK5YO1v8AbkMiMOpCugBBHXaT+dZCwrY3czQxrbK0hkaOMbUDN1wB0GecVPqGm6n4mstJ1nUY4TEZ0vEm3s0mx5QTEpbrsI5AOcc1U1VzLczZ+UqcmssTNxtG535XQ5m5SWx0mm6zL9oHzfSvpv4a+MrvS7uGZJzkcnn3r4l0zXtOivBG8gO04IJx+VfQfhrWtLie1njfEb4Bz2OQOfxNcNSjKJ9bha0JK259vfGD4B2nj3w2vxU8JBYb97WSe5gVQqzPbrvkJx/y0aMFge+096/OH/hLfDU2n3kVlqEdy4gm+WLLn7pz0Br9sfg7q+l6j4VfTY7tLm1jiWWTawJU4OePdcivxxvvCHh281S41GOzAZJfLj2kqBGSD0XA+tdvucqlLc+RxlFqrJR2LPw5gceDdHhKkMIIwQeozX7M/Ae1kMljCo5w36ALX5SeFLGCG8isoVxGJYlUegJFfsL+z5aqb22kIyI4nY/99D/CqwcnKs2up5+YR5aUUf/R/PDwi17oGoHUIAof5FG7lQDIoOfwzXq3xW1aO+0CaJ9Jm0Q6tbmOe4mdjulhmUqiq3B3B2wVOCBnHWuY13TWtfC8txbKolAGNw3DOeMitv416Q3g6706LxJBc6wRbRAXC3SApuXcRGk0MhCg/wC0OvSvz3KMx9pJNd9vSx+hcSZVGlLVdP8AMy9P8SaOvwft9DgvYf7Q0e/kUI2POuLdCGyvty2RntWT4s0+4tLL7WoKi/wUB4IQqGwfzxXmM9/ZafdQzpa6rHIshBjmktpI8ADIIjRCcA59/fmvV/GuoNJoGhjHWIn8Adq/oM115hze2ptLRlZMoOjOLeq/U8Rk0+4iLusjOTjC7OFPc/jX0T4f8M67qnwZutY8PwCW60++VLmTaXYQyIegHYMATXhFzqMk22KLkIeR0z6DNfYHwN8R+JNC+FvjKTTrU8LFKm2QAq8R3HKkHchXhhxn1GK6cS5cqZ04KlTU5RT3Ppz9mC1m8H/DXXvF+oTQyPDpk7gwSsySOFOUdTwjZwB659a+Xre4itg/mZHmNkDI9AMDNe0654zstY+B63unRLZXGq3sCShOBIFBc8DtkDNfNGv+MrrwM2ja3DBDcyM8yMs8ayRkFcZ2sCMjtXlVas5e7BamGOoU6dS8npodda+JtQ0fU476CySRYpFfazEbtnTkdK+tPAX7b1z4GjYHwYLxzA0IIvdgBP8AFjyj+Wa/MPxf8QbvxNc/bbGNdMc9Ra5iQ/8AAQQK4L/hJvE0BwupTED1bP8AOvUy/DVlHmej7HzmYV6Tly7o/9L4/wDGVhrGj+GtQ0zxJpd3pF2qfKLiJowxB6q5G0+xBNdJ+0mkmrRaXMrpHmC3ctLJtUo8KHPPJ69ACa7n4yftY/27YSaGLO3ulYf6qUCaFT2LBhjjtgA18B+JfEOq65dm+1SdriUgBcnKqo4CqOgUDgAV8Nw/w3VhKNWbtZt/l92x91xHxJTr+7Fa2sdNP4t0y3vbaCOEzxxShxLIOd7KiHA9PlJGea0/7dGo6UNLnP8ApGlSPGB3Me7g/kRXh10XdN+csOasQX9wbhb2Enzj8r/7Q9a+pxWWqUU1uj5rLszdKWuz0PRTp6TSmZN6lzxtPavuP4QeEbn/AIVnrstnLeRalLbu8IZgFbavTbt5zjHP0r4S03UZJLc3CttETAD1JPOK+iNe+MHjHwPpGmeCtGv447+7iE12Y13vaxyAMkIY5AdwdzY+6MDqTjyJ4WpKSppn1+Hx9GnB1ZI9Z8fW+o+FvC2l6alhMmm6NaNcPJt+WSaRd78jOMcLz0Oa+bfiRqra14b8K36xeT9shkn2E527sd+M19Iaz4s1XSk8M7Lhv+Kju4toLHCQyqjOMHtlz19K5zxr4U0j4oaPp934YiitdYt2uba1tExHFN5eXCYGArMq/KRgZ4PXI+yxfh26L9th58zWrT0e3T7z8+fGTrtxxEeW7tpstep8fQrwKknEark1a1XRPE+jO8epaLc2hjJVsozKCOvzDI/WuUkvi3B6ivm6cbs7KmnQ/9P8otPthqU5hDZlGdwPcHvWXa2j3Nxd6Q3M0G4x++3t+VWprpNJu7HxFYf8e5blTyRgjejepHb2rW8YY8N+NLbV7YZguRFdJ6Mjjmvep0E4X7P8GedOs7nn80TIzRyDBHFVIobizu42xt/iUk4HHIr2v4k+FFsjb6xYqGtr5FlQjphxmuTsmtprJLfV4t8MgwrjqpHSlWy/km4SYU8QpQU0jM0jWLW9QadrLmxui+9Z44wySMecMgKhc8YYceo712ugWI1rWnuZIZbl7iRlWUD5SSQSxP8AeLHAA+nauKtPCV74i8VaX4T02QeZqFwkccjf8s1JyzE+iqCa+yPCmkw+GYddS3CppunXMO2JwCQYwFQ5/HP1JNdGUZFGtXdSeiW5GPzeVOkoJlv4haN/ZHiTwBpCTSzLbMX/AHrbmXc5faDj7q52qOwAFeUfDvxPdReIIrNJShtri4mD+gETDP4Yr2vxk0+oat4R1idsyLayyt78Ma+T/AqyX2s6n5Rw32S8Yf8AfpzX2OPfJWiobX/BJHz+GjzUnzb/APBZ9R+LPFOp3U8fiHw5pv2/TL9TK2JNs6s5LcLg7hgjBrzm78R+C9UJi13TDDJ0P2i2Df8AjygmtLSfC11430bVdKsdRutNuPCdrpkiPbvgsGg2yhh0Ycg4PpXKr4S+KCvg3NnrVsOhmQxS47ZKcfjk1+NcV5XGhjZTVkpa9vJ+W9z9DyTMXPDRg9XHT/L8D//Z" alt="Richard">
+            <div style="flex: 1;">
+              <div class="fb-bubble">
+                <span class="fb-user-name">Richard</span>
+                <p class="fb-comment-text">Take it first thing with warm water Nancy! Works way faster on an empty stomach.</p>
+              </div>
+              <div class="fb-actions">
+                <span>Like</span> · <span>Reply</span> · <span class="fb-time">18m</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Comment 4: Steven -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,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" alt="Steven">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Steven</span>
+            <p class="fb-comment-text">I was about to lose my driver's license because I couldn't feel the pedals. 3 weeks on this and I'm back driving my truck. God bless Dr. Ohsumi.</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>512</span>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">1h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comment 5: Meredith -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBMRXhpZgAATU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAUKADAAQAAAABAAAAUAAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAUABQAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQABf/aAAwDAQACEQMRAD8A+pNb8K/GKwvLiPTotNvLeNigEnmRyHbwSSCV564A4ruvgzpXjmDULu78ZWyQRqgSIeb5xz6odi7R2OSe1e8WHn6nYw39/EI57lRI6gYAL/MRjJxjPqa0IYFQEJj+VTGg1K99DzZVtLWPFdI8aeMJ10yOaW0ulvNRktZSIyoWFQhBUAnLfMc84rzD41z6X4Q1KPcFFpqCsTHtk3KSfnG4KU2HJOCQQenBNc9YaT4SmNtpnhLXp4LrwnrlzcSefaPiSV2WNkRkGDjyyyY5b0HWvqTUtL0/W9LtprwC4Xy1be4I3ZUHOG5GfQ1lVrRmn7NpmeGTv7x87ftIWy/8Kq8KWdkv7s3FrsUAn5VtmAA79xXw3qdxcaZcR2TQoZIQZSWU53Z2qNxIUYPTrzX3/wCPvGOh6m9npWp2wNtYPvj+bA3hSo59K8dvbjwNK85fS7ExxnaDISzMSM9C3PXr2FeFmOE9tFxTsem8LN0+Wx8OaRqkkviiW51U/ZJxlLckjYMjBZz8wICsc+vr2r2oWWtaHYS3Yij1mNEDqkb4Xg7lxtOR9Rnj0r0y58PfDXUWeeBRbXLLtBQFY1Byfk2kYHJ5UV5n4i1S98OaiDcMy2sEYWFz8xlwRtBYk5yO5/nX5XxhWxeDcJUqfNHr29NNmeVWw8oayQ/wzcahqtvPrGp2gtrYyh4IiPm3o3X8d3J74FXr+90k6lJbWhNzqF2QzZONgBBONuMLkDtzXnnif4qafHCsyxiyvGJ/dMAAzKMAZ+o+UjAPavE7T4iQnVZH0zfLqlwytL0wqHoT7L1r4R0cwxdadbWKtZJbfN/qjN1Fsf/Q/Qrw38X9J8TW9hBokUmUlltbgXSNFJut4wWaMYw43f8AfWDgV5140+PIitrTT4bOSwnN1Ct6lzvt5UgbEkc0WVJMRwA5K8qSFyQSPzQ074wfZLYalcy3Vtqsu1bea4LyHIXAwke0RbP4SOmRxnJpvxW+J2si2gj8QTQXF0lvtnvLhJHuH3J+6QgSLkFsBmOMDnnqfzClmONnXadR3l00tpbZWbX39fMxw6i0oVYWXdaN/f8A5Hv/AIx+J+van431HxR4XnUaVeX0VkkUZZ0kZsKXV8A5Q54wCFJGPmJr7/tNSTW9JECymG0tUUSkNnLhQBGpPXb3PvX4PfCT4j+JtS+IWgaWum26wXd9BK0dus2GdMKGx5mMqBnJHbNftlZWBsdHzPI0VquWLdA7McnH4178YVqCfPK7l/WnY9vJcBFzblujzLxfp2nSSSTlQyqeN3avlj4gXNqyNaxxgAenHT3r6Z17VNLnS4iaXaFyRz1A618qeJNb8KatdXEenXq3csX3lgzJt+pHFcFabbuj7eFKKWx5Lp+u3OkSLAJZAo53DJxzzkV65e6bb+OfCjvPITcWcbNAYyNhyMZZTjp1rx4y2n2s3FufOjQlWA4Pv1716b4Ks21K78i3mKW9xFIgK9MupAz6ckZFNpVYckj5nOcFGz00Z8KeNYNPt7qawj1x9VurWOREMUY8sybsks4Y7sYxx3HBxnObpGzwylv4n1OEPeTbEgjcqyySbBk7D12H5sHjpkdq73xroNj4RtNTLRNBJLIyRFtqFZMbiAT0weB7Y9a4TW0uNRtdJt54182ytgQcZbL4OD74Xj2rljQSUae62Z8C6STsz//R+Tvg/wCCdX+Jvjf+wIblrcRW8tw0xUyCPZgLkDnBZh05qp+0J4KvdK/s3S7K/XWrm0jMUzqvlPkMcAox7Dgc9q808OePfH/g28nv/CF/NpF1cR+VJJBMyM8eQ20kDpkZrM17xb478SyGbWdQa/lJyWkLSNmvhcKpU6nOmrdj7LNMKsRV9q7rSyR2f7Pmm6rD8T9AtruGawiW4V5LovhY0TJb5Qe/Sv0Q+P8AP46jtbGLQ9CudT+zQwyLdm8a2t8vztRQfnKjk8YGccnNfmn8K4dU/wCE10+5u3Z7eOeLzkjViShYcEckZx1OOAea/bXxN8T/AA7png7TdUl05L64mghMCsuWBdRtXB9K6sXiefluGT4K1SSR8kePE8Q2HwT0jUtWgaz8Qai7p5QfcdrZxlsDPHBrww+CPiba+H7eXwlqkWnNckGeJLUOGTHAyQTknqT26V79+0p46v8AWI9Ltf7KuobazA2yLEFZz1LL/CM/Wqvws+Jc0+gTWGqQGOa3LCKR8Bnj6jcOgYd8cGuFycdUfUfV1JWZ4lpfhjxNpREvidIlmk6hARk+pU8jP1qzoyz2muyLpsximDFkjJIWTHP6V1viLUm1HUXkLZO79K5nUILezuodQlLBrZXkUj++cAE+vpj3rlhUknc4cbhYNWfQ8+/aN0yHxBe+HpboMJknU7UwoleQ4GcjHG3Gf518++IZWi1RJZX2SQXQhjC54aMBSp7HAzXvfxF14a5baF4lkia4msmZDFu+U7MnA6ZGTkV872NhpdjrVtqWoJdymK6N4qTZaLzZGDMSoBByQMg/SumElzxlLZfqfAvKKk5OUT//0vXvj3onwm0/TPhrqPg/wZYaQF8TaU0zR28cZuIZG+aJyFyUbuCSPaq3x41TS7T49+AtQ0fTLXR0XSdWh2WirCpDKcE7FXnnGcVw/wAV/E+k614A+H93o16t9JBrmhiVQcbXJX5SSAAfbOa83+PXxW0e0+Kug6pv3XHh6y1CC5hTLHzJxsADYAx1DHPGON1fhNDHYvFWgn8Snsl00R6Kxz9mnOW6f3lXwx4lFl8VvF88EuZr6200jjG84dc9xkdMZPc9q9Q8JBvH/g2w1S0lCXtjcTQxKctGcTMI2IzkgHI+qmvnfwNPf654tvvGxgWGzvoLO2WZ0Vl86NXAWOLkStJkABQSDycZzXvvw08A+IfA9jp9tp+uWtzOZZJZICr5QTTtMRtBIyiNgYO3dyODz9zk/CWPnTU6FFtNR/BW6m2D4jw9GreU0k9/u/zOt+JWn+KG0oWV1q7+d5eGWOyjMYHopYlhXyho2ka1aa8s+s6g5st211ESpuX8On4V9uePPiOtjp/2S/tWSQrhmQbkZhwcEfyOCO4r4c8VeK7rUZ2EI2R9B64zmrrYarFuE1ZrQ/QIY6FSmpxd10sdXq72gvWktV2Rbjt9Tg10NpBY3+lbbllR5XVQ2ASMZP614i+tyyGMzPnbgcd67/Qpn1oCxs5MXMTB1XgeYO6DPGeOM1xTShozysyjKpTfKVfiNpugXfjzQtAt7HyLFreVpILfEYmlJO18noRgfyryvQNDs/Efim/0yC4+xWsCqYPOQvJvGAUfGOc55Ar0HxDe6xP4/SG1YwXtivnxmUovlBASSwORt5yV5OBXnXhvWYvCviDV59RA1GVJ/IMjbpA8mTub5CVO7BADbhzkDIBrzatCTd4PpZL5nzNPFzhCTi9o/i2f/9P46g8e6EvggaN4b1o3MP8AaMV4Eu4ZFm89VH7xAGKoqgZTADEgZJwK928LfC3TPF0Gg+PfiBOl5Z6vF9putKG/zLvIcDzZnxIY1CAkj7x74Fc98HP2ZLDwxaWfjP4t2A0+8tMywaJI+6QspO17txjBXZny1OOu/ABA6z4zfE9rrQ7y5tPkvbj/AIl9oVG0qGwJcA4A2javA4Jx8pxt9jhHw+jSf1rERsui019fLyPjcfmqdqNPddTGh8TW+u+KzD4VtUg0nTJHstJhhUIitnDMqqNoA3YBHQHvn959U+BdGe0mgSObfrV3JFarP95EedwhKDoQmdzHnOMGvmz4Y+GE8O2dlZCAy3s8aq8g4b53wVXoQZHyrHg4+X5CTG3uXgLxikfiJ74qbnTtDvbYK8SArI0Zy+0gDCgZVBjbxgBSGQfp+NU6eEqSpL3lF2+483CyhUxEI1H7t0n6XPo/49eGNO/4RWC20+y2W1lCsUIVcu+1uWJHJZiSWbuTk1+eHirwHe2iwPNGY5JuRF/ESenAr9WNV12w8RWMGpyhZ7QDdAByrg8g+4NeS614OfXLptWvgqKAducAIn9K/lV1qjk7vU/pVUIwirKyR+Y03gDXZJFSGNgx6nHT6V0F2umfDO0i1DVZS+o4zFApPdfv+g9Sf5V758SfiL4f8M21xo3ge2XWNVjDCWdVL29tj7zNtBLleMgZx3r4kgh1HxReHX7+4/tCS4YkN5g/76LKG2DP3Adu77pGea/QeHPD+tiJKtjbxj26v/L8z4TiHjilRi6OE1l36L/M7eHxTB4xunfxcotbyff9muIxgoxXaC2MMVxtXhSO+cnNctZfBzXpYbvXNcmhtbTS7gSedK5CzRyDAZGBAO7p/eB7CuxsdFS1vYofswnumzsi2skyqeQdrAyRMOSuFkU4OAoroLu18bRp5t29rdWMrLvhmdFhcYKnJlkIweCQCMMMjFfc55wDQxMU6L5Jr7rea/U/NcLxJUg5Keqlv99z/9k=" alt="Meredith">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Meredith</span>
+            <p class="fb-comment-text">Pay close attention around the 15-minute mark where he talks about the nerve coating. Everything finally made sense.</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>341</span>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">3h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comment 6: Michael R. -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,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" alt="Michael R.">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Michael R.</span>
+            <p class="fb-comment-text">No more 'bunched-up sock' feeling under my toes. Best 20 minutes I've ever spent watching a video.</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>427</span>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">5h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comment 7: Ashley Thompson -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QCMRXhpZgAATU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAAC2gAwAEAAAAAQAAAFAAAAAA/+0AOFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/AABEIAFAALQMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/2wBDAAICAgICAgMCAgMFAwMDBQYFBQUFBggGBgYGBggKCAgICAgICgoKCgoKCgoMDAwMDAwODg4ODg8PDw8PDw8PDw//2wBDAQICAgQEBAcEBAcQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/3QAEAAP/2gAMAwEAAhEDEQA/AP38pjFgQFGc9afiobi4gtIHubqRYYYgWd3IVVA6kk8AUmwON8aXV7a6ckyhfKD84yTnt+Fflv8AvA8WmTGN13N/wCPIxr6C+Pn7bfwr8HWMmi6Hv166Lffh+WElSc7WOC3PGRx7mvk3wl8VvDXx11dza24sdVgzObcsHDAKVOxuORnkV5U8ZBVL3079DqWAqWu0fop+y5fST+BPsbZ2xSSY44+8T1/GvppBhQOv1r5w/Zq0+TTfCl3byghvPJP1NfSNehQd43OV7n/0P38r8uv22/jpMsk/gHRblksbPK3SxNg3M//ADzYjkIn8Xqf1+//ABh8SfDXhzTNV8rUYJdSsIm/0dXDOJCMKGA6ckZBr+en4n6zrHxL8Z3Nr4ZkjmtBJ/pFzv3OzytjCgjbktnPPWvIzKq5SVGPq/T/AIJ7GVUVd1Jei9TxOHTtU8deJFs4i00jsPMdOiqOAigcAdgB2r6l8I/DL/hXjx+INMke1v4xuLZzk45FbHgLUPCfwltJ9L8aaWNP8oqTflNwDvwoldGcruPCkhR2qG/+LsHjzVXsvBduLvTbbIkuRGzxsV6lSGVSPxNeVXcpRsl7v4H1NOjQjDmlJXPtz9ln4xatrGtjRb29b7UsxjlgZsrImeHUH25xX6ZqwdQ68hhkV/Nv4O8fTeCvjnp91bl7RJtnUERmSM/MAT17Y571+1j/ALWXwj0yKCLXdR/s65kjV/LmwuQe6nJBGc125LLkbov1XofM5xRV1Ujtsz//0fkTwh8Ste8L+F/F3jO6knuJ77yrKKRnLfPLvc9eeNoJP0r179l74da34y+G114k03UYlDX88fkyl0YMhV8rKmSM7um38a8Y/sRLjwc3heOELJ5yXMgPJOxGU/XIOVOfXmvo/wDYV1ttP8P+NPCBzJNpl3HdpGeCUmjKZA+qDNfM5rU5J1O+n3f8OfZcN0oTVOMtU7/f/wAMe0eF/hdcW2ty2mtC2itIgLiW2eeS7aeRcmLfJOAMBsvtwSSo7DnwNvhxpEXjfULW2sF1LTYZjPEsEvkmISEs6AcKQr7u/QgY9frLW9S8BabpZ1DxLPFNq0jSSebtd2jkcbMIVBwEX5Qfr6mvGfC/iLwFaeK7i38MEvHfmXko6sSxzzvGScjNedGvPlclc+4qZXQ0XLpf+vkfK/xXvY/BXivwuVswsSGcL5jh52zgZYgYUhWwMEmsr4ueLr661+2aCeYxLbRhQADgEA9yO5qr+0BeRaz8WNJ0eP5jYW++UA/xSucD67VFcB8TrgrrsSoCAkKoeD1Uc4I6jmvRwNT95GXW36nwOe0kueK2T/Q//9LwrxX8MfHWkQN4w1e0t7OLTAj/AGaO6jkuFXPzB/L3pj1G4n2rxj4b/EifwJ8U9O8X6PIrWeoFrTUIUPLW8jbS+O+xsMO42kcZNfqn8XdAuLbwVfaa0sMSLCxuGcE53A7gCvQ7eM9efU18f+Dv2UNQi1JteE63l/btvSzlJUPayAGKWJnIyR91lY9s5rgzzL5X54q+h7mT42nSaTfKk9/8z7bfULA6Io1HbEHQMhU5jdSMgq3cHrivkTx34p06y1H7TpB3SwEs0m4BExwCW749K9pfwl4u03Sk0yz029VEXG3AdB9AdwH0HFcE3wn1G/kl/tHRLySSbgM68DPHA+6K+Ohh6kVZxf3M/SqmaYeULKtH71/mfnDoOp/8JT8SNb8W397uilnIjVvvOqHapGcYG0fjmvvzwVrun65pSw+H9G0zUJrQAXMmox206lmyE8rzfmXhfnB9q5TXP2StD8P+HNa8Y6m0lhaaVaz3W3eGdhGhIQY5wTgZNeA+Afjvc/DfTpdL0Pw/pxjmKs5cSFmZQRuYlySTn6egFenTh+8U53jp2PJyrIK2YRm8JKMlF6u/V6n/0+Z+Jvx0jNtcQ3VxGLNMgRRAkY9Sc88jPPevEdM/bA1TRNUsLy1zdJYAxCORsB4Sf9W2M9Ox6jivmuXXXeM29+PtMbDDK3Vh6Z/lWVb2vhCNvM/s2NnOTl3dh+RNeHWzmvP4nb0SP6fXhjlVOKhSpqXdzlK//ktl+B+m2oftr6dcWFrfWkdjZLcRh9s8pdwe45KAY+lclD+3Z4Ke2kW7uUF2pKgxwOULdsEEj9a+ERe6PBtMNpbp0wREvA6cHFaFvrFrfq9ohUOAdu0BcH8K2WcKyvA+Rl4KUed2rpJ7Llv6a3R9a6h8YvEPxxt5PA2k+Io4f+Ek22cMMgMUbPKwVVcIrHHrXyn8Tfg18UvhXr50LxfoU8Mj7jDPCpnt7hFON8UiZDDpkHBHcCu6/Z0mvJ/jJ4dCsXeGaR2B5wqRsS3PTHb3r9pdH8eTLaBJZlwpwvmn+R715GaZtzVFeOljbC4WWQL6vh5KSlq9La7dG+x//9k=" alt="Ashley Thompson">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Ashley Thompson</span>
+            <p class="fb-comment-text">Finally threw away my ugly compression socks yesterday!! Can wear normal sneakers again without crying 🙌</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>289</span>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">7h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comment 8: Sofia Mia -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,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" alt="Sofia Mia">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Sofia Mia</span>
+            <p class="fb-comment-text">Walked 2 hours at the park with my grandkids today. If you have neuropathy you NEED to watch this before they take it down.</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>366</span>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">9h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comment 9: Dale McCracken + Reply from Linda G. -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QB0RXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAABIAAAAAQAAAEgAAAABAAKgAgAEAAAAAQAAAFCgAwAEAAAAAQAAAFAAAAAA/+0AOFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAAOEJJTQQlAAAAAAAQ1B2M2Y8AsgTpgAmY7PhCfv/iAqBJQ0NfUFJPRklMRQABAQAAApBsY21zBDAAAG1udHJSR0IgWFlaIAfeAAEAEgAWAC4ABWFjc3BBUFBMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtbGNtcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2Rlc2MAAAEIAAAAOGNwcnQAAAFAAAAATnd0cHQAAAGQAAAAFGNoYWQAAAGkAAAALHJYWVoAAAHQAAAAFGJYWVoAAAHkAAAAFGdYWVoAAAH4AAAAFHJUUkMAAAIMAAAAIGdUUkMAAAIsAAAAIGJUUkMAAAJMAAAAIGNocm0AAAJsAAAAJG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAHAAAABwAcwBSAEcAQgAgAGIAdQBpAGwAdAAtAGkAbgAAbWx1YwAAAAAAAAABAAAADGVuVVMAAAAyAAAAHABOAG8AIABjAG8AcAB5AHIAaQBnAGgAdAAsACAAdQBzAGUAIABmAHIAZQBlAGwAeQAAAABYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMSgAABeP///MqAAAHmwAA/Yf///ui///9owAAA9gAAMCUWFlaIAAAAAAAAG+UAAA47gAAA5BYWVogAAAAAAAAJJ0AAA+DAAC2vlhZWiAAAAAAAABipQAAt5AAABjecGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltwYXJhAAAAAAADAAAAAmZmAADypwAADVkAABPQAAAKW3BhcmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAApbY2hybQAAAAAAAwAAAACj1wAAVHsAAEzNAACZmgAAJmYAAA9c/8AAEQgAUABQAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAgICAgICAwICAwUDAwMFBgUFBQUGCAYGBgYGCAoICAgICAgKCgoKCgoKCgwMDAwMDA4ODg4ODw8PDw8PDw8PD//bAEMBAgICBAQEBwQEBxALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP/dAAQABf/aAAwDAQACEQMRAD8A7f4SeGl0G7KsoMjdSev619OQAhRjO38x/UV89eCZ7lNYWNn3oRX0FBNg4J5/z9K9DHU402oxRy4R3jc14SSACOB/n3qtrWq6tZW9vZaNpM+s3F3JtEUA3MBnknnAA7knFdDoGlz69qUGn2ow8nVj0VR1Y/QV7vZrpXh9PsWnLgKPnkIy7n1JrglG6O6lBt6HjXhn4b+MlWa9uNNNu1wAfLM0ZYexwa3H0+/00iG/geA9MOuAfoRwa9ht9eBGI3wB2qjfX0N6jR3Sq6twR1BH0qYrlXKjd4d3ueZJHkggYrf0aCOe7EcoyCK4jVvEOmaNrlvpUrGNbltiOfuhieAfqeK6ZNbtdCP2+/z5SdSO1OL1OepTa0L2vabBbXEXlDAbrWZNpaXSMgjDnBPI6Ut34u8O+JXjOi3izvH95R1H1FdX4aiE988T8jy2P61rNmaP/9D1PwlHjV0yQMj/AA9a90h3A4U/5/UV4D4X1Oyj1qKISYbPPt09q93nvrO2MZlkH708H/8AXXfmVaEp6O9jhwHwHtvgi4ttD8PahrEuPtEx8tD6IvX8z/KsqXxdA4Lh1Gc4Byen0rLsNQ01vBhkuWXEMrrhjgZB3euOM15NqPjvRfMb7KYmEXHDZ5z6CuF1I2vc+nwNFNHrsni66Yh44XVBwCFz+P8AhQ3jJpVCoGRh/eUrk+9fKuoftCeErLV/7L1GcRlMD92ruP8Ax0Gu+034k+E/EsKw6TPmYsAAwKhvYE1xusr6M9SVFLSxlfFDxANR1a1jiJZiueOdrD/Oa+jIrltY8JWd7OMtcW8bv/vFRn9c18weObEaPdrrcI3hlDKvUFsHI/lXtXwo1+HxN4ck01rZobaxESQu7ZaZJFLFyuBt+bcu3JwB1q1WXMonmYzCycHUS0Rzvga2itvHmpeUAMqpOPpX0I99d2CG4s32SAY9sVx2neD9O0rVZtWtgRLMAG5OMCuouy0kBCDLV03u0eLbRn//0fEdF8a3Z1MXZuwZGYD0r3rUvHV1c2tpFAx2xYOc8nHNeBeF/BGgXEiQhzLcE5yDXpUnhybS3Ceb+6UYAbnmvj5TlOLlTe5g0lseq+IPD3iv4sfDFtQ8KukH9n3MkdyZQ75QIrYRF+85J4yDXO/sx/A3xrpfiW61DxzJJNppil2xvF5KnjgqrHcMHHUCvpL4I6tH4S+FF3d6tEYY57uRwGG0MBhcgnr92uYs/Boy4hGt6/b6e9zpFsyWsflBSC+SztnOflAA6Y5Oa+hw6gqa9pufUZdTqSpqx5H4k/ZXTxPrd1f28jGGdmPlNI0WzOR/AO3avV/hl+zJ4d8GQpcXUsiXEW0sqTysr7ehPmE8+4xXnOo/HO98S3EV74OibS57UsXlmmEkdyp52bF6YPQnmun8D/tBXviK6l0zVovLkhxvBIwD6g9we1N1oWtY9NYaW99T1r4g6XpuojTtKkuXtbeV2gdkOHUSoyq6nsytgisr4BadqHhuTVPDus6pLqdwvlujyK3yAjhGcjG/Byy9s/Wsbxvqh1Oyg1LT8GeCVDGCfvsSAF+pP5da3vDeo2hg1CxmUNr3klhJCixkXigththO5MgAHn5TTwuHcpOa6HnZnj/AGVH2K3lv+Z9M4Ma5c8VDHeLtYjBANfL/AKf2m/D3xPs57G3t5LPXNLJj1DTrjC3NvIhw2V/iTI4YceuDxXskHjbRndUkjaOR+MEd66Oaz10PCir6n/0vLfA1rBpGqJcyOcq3PNS/Hn462PgnSl8O+Eo0uPE+oLlXcbks4yP9awOQWP8AP1PFcr451TVPCfhi81rR4VluoU+UtjCZ437Sfmwccfj2r8/rrxBNc3NxqOozyXN1LukmkblmZuOT+gHauXB5dOE25vTsYykfqX+ztr2rax8AUh1mC6niubi5ik1KebdHNKsrMI0UnIYK7EkcEg9xXY6H4Pe08OXFjBrqW2m27HEYthLI2eSxJcAkk9xXyd4T1+1h/Zy8J6W6SRT3F+JbeR7kxTNIk0vmvBCvyGKMbVLvtJdnxnFd58LPj3aWDyQ+K/3UcTELIQGScLnOR0zjt+IrszDAtJV0tD28ozOKj7B79D2HQPC3h6W5FtLdX0qTnCrGI7ZGPfiLLf+PVa8T6b4b8Bxx6b4YtkQXLqflJeWSQ5BySSx61Zt/jD4dvr94vCNpHd6ldAGOOMAbRjO5jwFUYyScACuKTxxoa6qbjTZRqmp3wa3vbiRcx23mfd8jB454J6n26Vw4XDOt6elj08yzSNJaas9XfW7zwtYWkVwPtOuxzIhtgokihinUjO7nLkdCBx065Na3hO/kigivYgzPcOIYXYRyRu78+WS2HilQE4yQDivILWCWwhS28Q3ciMVNr9qD4ENzbOzwnJPAKkYBOOMVqeHvE818s3ivVRHFFbwslqhhEcGpMjFTOWJwCR/q8rk8nOCK+ho0owVonw2KxE6kuabuz5b+LGuXPgr9oXXvF3gyU6fqukXwOGHliYNGhkjkQEjDktkZOc5Hav0h8B+PdF+JXhDS/GWkkI0zATW5PzwzLjfG30PT1BBr8ePij4jmf4la9LcKFl8xI5AJPNCyRoqt83fkH+VdH8Hfi5rfgfxLNNo8nmWt/tMttJ/qpHVh8wwflIGee/TvXPisMpq63OrD1HHTof/9P428S+N5Z7SWZTumnBWPdyEU8EgHjJ9a+T9Q0wCab7KU8oyBnDZ+U+mB1Ga6zUdYlv9TEStiKIYA7VhXEObtgedwIP0Ir2Ksb7Hnwlrqdx8NJ7y8urjQ7GCK4vFU+V5sbSnbIfuwxcjcDuOe3Neza38Dtc0yVb3xvdQaRpFvEreWWSW8lG/azx28TfeXOSGK9Oa4f4Ba3o/wAPviINQ1uP7Qt1ZXFpFjJ3POmFHqfMzt/Gvvr4i6f8L9RvtYu7ywex/sq80tEWFsGK1lVVeQgnksPlYkc1t7eXsvZqxHIufmPkKSGOzuE8FfC62dILlzLBqDNvubpUG5fPkGAu0clAAo7Z616l4Z0i10y2shDKGXXFaC7ZgMRXZz19F3dB+XWtjxZrHgnwRH4h0HwpaRwS6TqKX9m2SXkt3Xa6c9QAx4/KvKrbxHqnii11bTvClvJe213ieSWFQUtG3felkxiNc/iewripWWl9TavzPW2h6GurT+Ltah8HWNmmpSxAR6laLKU+0tbZG8MuMLgDcQck8dM1V+KfxDj0XTTplsP7R0WxaN/sk7AyxzEFUiBGDt3YOOoA7VVu9Y0r4YaVcWbi3v8AxdMttcW+qQkxxMMcIo42oo7d+/pXwj428XXniHVGmb5r26ZmkbruZjlpDjAyeijHA/GtJTsZU6V3cqTi2mllubm48y6ldpJdhz8znJ6cDn3q1p96IZ1kTgpxx6e1Z0Fg0cI3H5uprTsbNFYE96iN2zdtJaH/2Q==" alt="Dale McCracken">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Dale McCracken</span>
+            <p class="fb-comment-text">Almost scrolled past this... so glad I didn't. The Johns Hopkins doctor part convinced me.</p>
+            <div class="fb-reaction-badge">
+              <span>👍</span> <span>142</span>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">11h</span>
+          </div>
+
+          <!-- Nested Reply from Linda G. -->
+          <div class="fb-reply-box">
+            <img class="fb-avatar-sm" src="data:image/jpeg;base64,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" alt="Linda G.">
+            <div style="flex: 1;">
+              <div class="fb-bubble">
+                <span class="fb-user-name">Linda G.</span>
+                <p class="fb-comment-text">Same here Dale! Stick with the morning routine, it really works.</p>
+              </div>
+              <div class="fb-actions">
+                <span>Like</span> · <span>Reply</span> · <span class="fb-time">8h</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Comment 10: Arthur Pendelton -->
+      <div class="fb-comment-item">
+        <img class="fb-avatar" src="data:image/jpeg;base64,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" alt="Arthur Pendelton">
+        <div style="flex: 1;">
+          <div class="fb-bubble">
+            <span class="fb-user-name">Arthur Pendelton</span>
+            <p class="fb-comment-text">Showed this research to my neurologist and he was completely stunned. Big pharma does NOT want this broadcast out there.</p>
+            <div class="fb-reaction-badge">
+              <span>👍❤️</span> <span>489</span>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <span>Like</span> · <span>Reply</span> · <span class="fb-time">14h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closed notice -->
+      <div class="fb-closed-notice">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#65676b"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+        Comments on this broadcast are closed.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLEAN MINIMAL COMPLIANCE FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-container">
+      
+      <nav class="footer-links">
+        <a href="#">Terms of Service</a>
+        <span class="footer-separator">•</span>
+        <a href="#">Privacy Policy</a>
+        <span class="footer-separator">•</span>
+        <a href="#">Contact Us</a>
+        <span class="footer-separator">•</span>
+        <a href="#">Disclaimer</a>
+        <span class="footer-separator">•</span>
+        <a href="#">Shipping & Returns</a>
+      </nav>
+
+      <div class="footer-copyright">
+        © 2026. All Rights Reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- LIGHTWEIGHT TITLE FLIPPER (OPTIONAL & SAFE) -->
+  <script>
+    (function() {
+      var titles = ["🚨 (1) Unread Message", "CBS News Health"];
+      var idx = 0;
+      setInterval(function() {
+        document.title = titles[idx];
+        idx = (idx + 1) % titles.length;
+      }, 1200);
+    })();
+  </script>
 </body>
 </html>
